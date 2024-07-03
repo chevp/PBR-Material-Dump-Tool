@@ -12,6 +12,10 @@ START MaterialDumpTool.exe --dir PATH_TO_WORKSPACE
 
 Large PBR materials with a resolution of 2024x2024 have longer loading times for Vulkan rendering than small dump files.
 
+## Software Architecture
+
+![Software-Architecture](/doc/software-architecture.svg)
+
 ## Prerequisites
 
 Download PBR materials for conversion.
