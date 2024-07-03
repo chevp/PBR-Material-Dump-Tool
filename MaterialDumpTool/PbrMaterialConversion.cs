@@ -150,10 +150,15 @@ public static class PbrMaterialConversion
             Environment.Exit(0);
         }
     }
-    private static bool printDirectoryContent(String directory)
+
+    /// <summary>
+    /// Anzeige des Ordnerinhalts dir.
+    /// </summary>
+    /// <param name="dir">Anzuzeigender Ordnerinhalt</param>
+    private static bool printDirectoryContent(String dir)
     {
         Console.WriteLine("List of all Files:");
-        DirectoryInfo place = new DirectoryInfo(directory);
+        DirectoryInfo place = new DirectoryInfo(dir);
         FileInfo[] Files = place.GetFiles();
         bool hasImage = true;
 
@@ -171,10 +176,14 @@ public static class PbrMaterialConversion
         return hasImage;
     }
 
-    private static bool hasDirectoryImages(String directory)
+    /// <summary>
+    /// Gib true zurück, falls ein Ordner Bilder enthält.
+    /// </summary>
+    /// <param name="dir">Zu prüfender Ordnerinhalt</param>
+    private static bool hasDirectoryImages(String dir)
     {
         Console.WriteLine("List of all Files:");
-        DirectoryInfo place = new DirectoryInfo(directory);
+        DirectoryInfo place = new DirectoryInfo(dir);
         FileInfo[] Files = place.GetFiles();
         bool hasImage = false;
 
@@ -328,19 +337,24 @@ public static class PbrMaterialConversion
         }
     }
 
-    private static void copyAllImages(String src, String dest)
+    /// <summary>
+    /// Kopie aller Bilder von srcPath nach destPath.
+    /// </summary>
+    /// <param name="srcPath">Quellordner</param>
+    /// <param name="destPath">Zielordner</param>
+    private static void copyAllImages(String srcPath, String destPath)
     {
-        DirectoryInfo place = new DirectoryInfo(src);
+        DirectoryInfo place = new DirectoryInfo(srcPath);
 
         FileInfo[] Files = place.GetFiles();
 
         foreach (FileInfo i in Files)
         {
-            Console.WriteLine($"src={i.Name} dest={dest}");
+            Console.WriteLine($"src={i.Name} dest={destPath}");
 
             if (i.Name.EndsWith(".png"))
             {
-                copyFile(@$"{src}\{i.Name}", @$"{dest}\{i.Name}");
+                copyFile(@$"{srcPath}\{i.Name}", @$"{destPath}\{i.Name}");
             }
         }
     }
