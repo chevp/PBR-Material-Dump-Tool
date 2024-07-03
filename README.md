@@ -31,6 +31,7 @@ Place a list of PBR materials in the workspace.
 
 ### Initial Folder Structure
 
+```
 ├── pbrmat1
 │   ├── pbrmat1_albedo.png
 │   ├── pbrmat1_ao.png
@@ -40,6 +41,7 @@ Place a list of PBR materials in the workspace.
 │   └── pbrmat1_roughness.png
 ├── ...
 ├── pbrmatN
+```
 
 ### Start File Conversion
 
@@ -49,6 +51,7 @@ START MaterialDumpTool.exe --dir PATH_TO_WORKSPACE
 
 ### Folder Structure With Converted Files
 
+```
 ├── dump
 │   ├── pbrmat1
 │       ├── 8x8
@@ -74,6 +77,7 @@ START MaterialDumpTool.exe --dir PATH_TO_WORKSPACE
 │           ├── ...
 │   └── ...
 │   └── pbrmatN
+```
 
 ## Source-Examples for PBR-Materials
 
