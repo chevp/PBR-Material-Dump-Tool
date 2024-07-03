@@ -19,7 +19,7 @@ public static class PbrMaterialConversion
     /// <param name="dir">Working Directory</param>
     public static void run(String dir)
     {
-        createIfNotExist("dump");
+        createIfNotExist("_dump");
 
         DirectoryInfo place = new DirectoryInfo(dir);
 
@@ -27,7 +27,7 @@ public static class PbrMaterialConversion
 
         foreach (DirectoryInfo i in Directories)
         {
-            if (i.Name.Equals("dump"))
+            if (i.Name.Equals("_dump"))
                 continue;
 
             Console.WriteLine($"dir={i.Name}");
@@ -74,36 +74,28 @@ public static class PbrMaterialConversion
 
         normalizeAllImageNames(@$"{dumpDir}\2048x2048");
 
-        createIfNotExist(@$"{dumpDir}\8x8", true);
-        resizeImages(@$"{dumpDir}\2048x2048", @$"{dumpDir}\8x8", 8);
+        for (int i=8; i<=1024; i=i*2)
+        {
+            processSingleFileFormat(dumpDir, i);
+        }
+    }
 
-        createIfNotExist(@$"{dumpDir}\16x16", true);
-        resizeImages(@$"{dumpDir}\2048x2048", @$"{dumpDir}\16x16", 16);
-
-        createIfNotExist(@$"{dumpDir}\32x32", true);
-        resizeImages(@$"{dumpDir}\2048x2048", @$"{dumpDir}\32x32", 32);
-
-        createIfNotExist(@$"{dumpDir}\64x64", true);
-        resizeImages(@$"{dumpDir}\2048x2048", @$"{dumpDir}\64x64", 64);
-
-        createIfNotExist(@$"{dumpDir}\128x128", true);
-        resizeImages(@$"{dumpDir}\2048x2048", @$"{dumpDir}\128x128", 128);
-
-        createIfNotExist(@$"{dumpDir}\256x256", true);
-        resizeImages(@$"{dumpDir}\2048x2048", @$"{dumpDir}\256x256", 256);
-
-        createIfNotExist(@$"{dumpDir}\512x512", true);
-        resizeImages(@$"{dumpDir}\2048x2048", @$"{dumpDir}\512x512", 512);
-
-        createIfNotExist(@$"{dumpDir}\1024x1024", true);
-        resizeImages(@$"{dumpDir}\2048x2048", @$"{dumpDir}\1024x1024", 1024);
+    /// <summary>
+    /// Bearbeitet einen Konvertierungsschritt pro Auflösung.
+    /// </summary>
+    /// <param name="dir">Bilddateipfad</param>
+    /// <param name="pixels">Auflösung in Pixel</param>
+    private static void processSingleFileFormat(String dir, Int32 pixels)
+    {
+        createIfNotExist(@$"{dir}\{pixels}x{pixels}", true);
+        resizeImages(@$"{dir}\2048x2048", @$"{dir}\{pixels}x{pixels}", pixels);
     }
 
     /// <summary>
     /// Vereinheitlichung aller Dateinamen innerhalb eines Ordners.
     /// </summary>
     /// <param name="dir">Ordner der zu normalisierenden Dateinamen</param>
-    private static void normalizeAllImageNames(string dir)
+    private static void normalizeAllImageNames(String dir)
     {
         DirectoryInfo place = new DirectoryInfo(dir);
         FileInfo[] Files = place.GetFiles();

@@ -56,7 +56,7 @@ START MaterialDumpTool.exe --dir PATH_TO_WORKSPACE
 ### Folder Structure With Converted Files
 
 ```
-├── dump
+├── _dump
 │   ├── pbrmat1
 │       ├── 8x8
 │           ├── pbrmat1_albedo.png
