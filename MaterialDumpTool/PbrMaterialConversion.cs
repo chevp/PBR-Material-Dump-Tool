@@ -74,7 +74,7 @@ public static class PbrMaterialConversion
 
         normalizeAllImageNames(@$"{dumpDir}\2048x2048");
 
-        for (int i=8; i<=1024; i=i*2)
+        for (int i = 8; i <= 1024; i = i * 2)
         {
             processSingleFileFormat(dumpDir, i);
         }
