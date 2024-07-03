@@ -20,6 +20,10 @@ CSharp program for converting PBR materials into dump files.
 
 ## Code of Conduct
 
+## Source-Examples for PBR-Materials
+
+- https://www.texturecan.com/
+
 ## Open Issues
 
 - [ ] The naming conventions for ambient, occlusion, albedo and metallic roughness files are inconsistent.

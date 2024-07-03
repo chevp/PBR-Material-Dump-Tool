@@ -1,0 +1,6 @@
+.vs/
+*/bin
+*/obj
+*/input
+*/Properties
+*.csproj.user
