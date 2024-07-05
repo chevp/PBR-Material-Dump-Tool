@@ -1,4 +1,4 @@
-# PBR-Material-Dump-Tool
+# PBR Material Dump Tool
 
 CSharp program for converting PBR materials into dump files.
 
